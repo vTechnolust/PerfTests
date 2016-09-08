@@ -1,0 +1,13 @@
+[write 512K]
+ioengine=libaio
+iodepth=128
+rw=write
+bs=512k
+direct=1
+size=1G
+numjobs=1
+runtime=30
+thread
+directory=data
+group_reporting
+time_based

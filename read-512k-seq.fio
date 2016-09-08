@@ -1,0 +1,14 @@
+[read 512K]
+cpus_allowed=1,2,3
+ioengine=libaio
+iodepth=128
+rw=read
+bs=512k
+direct=1
+size=1G
+numjobs=1
+runtime=30
+thread=3
+directory=data
+group_reporting
+time_based

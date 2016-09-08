@@ -1,0 +1,14 @@
+[read]
+cpus_allowed=1,2,3
+thread=2
+ioengine=libaio
+iodepth=128
+rw=randread
+bs=128k
+direct=1
+size=1G
+numjobs=2
+runtime=45
+directory=/rdm/data
+group_reporting
+time_based

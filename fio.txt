@@ -1,0 +1,43 @@
+; -- start job file --
+
+
+
+[global]
+
+ioengine=libaio
+thread			;thread count should be equal to jobs
+direct=1			;use direct io
+runtime=120			;seconds of runtime
+time_based
+;numjobs=1			;number of jobs to run in parallel
+;ramp_time=10			;ramp time, if desired
+unified_rw_reporting=1
+group_reporting		;combines reports of multiple jobs
+disable_slat=1			;disables submission latency reporting as they are unnecessary
+disable_clat=0			;disables completion latency reporting as they are usually unnecessary--latency numbers of interest will still be included.
+clat_percentiles=1		;disables completion latency reporting as they are usually unnecessary--latency numbers of interest will still be included.
+stonewall=1			;makes below job types run in order
+norandommap=1
+;scramble_buffers=1		;fills random data into buffers (not zeros)
+randrepeat=0
+
+;buffer_compress_percentage=0 	;percentage of buffer that will be compressible--useful to simulate database compressibility
+
+[workload]
+blocksize=4K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=randread
+rwmixread=80
+rwmixwrite=20
+
+file_service_type=random
+filename=/rdm/write1.fio		;name of file to process IO to
+filename=/rdm/write2.fio		;name of file to process IO to
+filename=/rdm/write3.fio		;name of file to process IO to
+filename=/rdm/write4.fio		;name of file to process IO to
+filename=/rdm/write5.fio		;name of file to process IO to
+filename=/rdm/write6.fio		;name of file to process IO to
+filesize=10G
+numjobs=4
