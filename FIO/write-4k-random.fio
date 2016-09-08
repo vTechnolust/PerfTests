@@ -1,11 +1,11 @@
 [randwrite]
 iodepth=1
-rw=randwrite
+rw=randrw
 bs=4k
 direct=1
 size=1G
 numjobs=2
 runtime=30
-directory=data
+directory=/rdm
 group_reporting
 time_based

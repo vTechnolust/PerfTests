@@ -1,0 +1,164 @@
+; -- start job file --
+
+
+
+[global]
+
+ioengine=libaio
+thread			;thread count should be equal to jobs
+direct=1			;use direct io
+;runtime=20			;seconds of runtime
+time_based
+numjobs=4			;number of jobs to run in parallel
+;ramp_time=10			;ramp time, if desired
+unified_rw_reporting=0
+group_reporting		;combines reports of multiple jobs
+disable_slat=1			;disables submission latency reporting as they are unnecessary
+disable_clat=1			;disables completion latency reporting as they are usually unnecessary--latency numbers of interest will still be included.
+clat_percentiles=0		;disables completion latency reporting as they are usually unnecessary--latency numbers of interest will still be included.
+stonewall=1			;makes below job types run in order
+norandommap=1
+;scramble_buffers=1		;fills random data into buffers (not zeros)
+randrepeat=0
+
+;buffer_compress_percentage=0 	;percentage of buffer that will be compressible--useful to simulate database compressibility
+
+file_service_type=random
+filename=/rdm/write1.fio		;name of file to process IO to
+filename=/rdm/write2.fio		;name of file to process IO to
+filename=/rdm/write3.fio		;name of file to process IO to
+;filename=/rdm/write4.fio		;name of file to process IO to
+;filename=/rdm/write5.fio		;name of file to process IO to
+;filename=/rdm/write6.fio		;name of file to process IO to
+filesize=10G
+;numjobs=8
+
+[workload-4k-read]
+blocksize=4K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=read
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+[workload-4k-randread]
+blocksize=4K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=randread
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-8k-read]
+blocksize=8K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=read
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-8k-randread]
+blocksize=8K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=randread
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-256k-read]
+blocksize=256K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=read
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-256k-randread]
+blocksize=256K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=randread
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-8k-write]
+blocksize=8K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=write
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-8k-randwrite]
+blocksize=8K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=randwrite
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-8k-readwrite]
+blocksize=8K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=rw
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-8k-randrw]
+blocksize=8K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=randrw
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-32k-randrw]
+blocksize=32K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=randrw
+rwmixread=70
+rwmixwrite=30
+runtime=30
+
+
+[workload-64k-randrw]
+blocksize=64K
+blockalign=4096
+;dedupe_percentage=0
+iodepth=1024
+readwrite=randrw
+rwmixread=70
+rwmixwrite=30
+runtime=30
